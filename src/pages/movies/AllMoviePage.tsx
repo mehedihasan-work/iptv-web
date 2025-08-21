@@ -5,7 +5,7 @@ import {
   useFetchMovieCategoriesQuery,
   useFetchMoviesQuery,
 } from "../../redux/features/auth/authApi";
-import { setSelectedLiveCategory } from "../../redux/features/favourite/favouriteSlice";
+import { setSelectedMovieCategory } from "../../redux/features/favourite/favouriteSlice";
 import { ShowPagination } from "../../components/shared/ShowPagination";
 import { Loader2Icon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ import noIconPoster from "../../assets/no-poster.png";
 function AllLivePage() {
   const { username, password, baseUrl } = useAppSelector((state) => state.auth);
   const selectedCategory = useAppSelector(
-    (state) => state.favourites.selectedLiveCategory
+    (state) => state.favourites.selectedMovieCategory
   );
   const dispatch = useAppDispatch();
 
@@ -215,7 +215,7 @@ function AllLivePage() {
                     categoryRefs.current[index] = el!;
                   }}
                   onClick={() =>
-                    dispatch(setSelectedLiveCategory(item.category_id))
+                    dispatch(setSelectedMovieCategory(item.category_id))
                   }
                   type="button"
                   onKeyDown={(e) => {
