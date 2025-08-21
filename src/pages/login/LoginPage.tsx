@@ -16,13 +16,9 @@ function LoginPage() {
   const dispatch = useAppDispatch();
   const navigation = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const userInfo = {
-      baseUrl,
-      username,
-      password,
-    };
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const userInfo = { baseUrl, username, password };
     try {
       const response = await fetchUserInfo(userInfo).unwrap();
       if (response?.data?.user_info?.status === "Active") {
@@ -47,28 +43,36 @@ function LoginPage() {
         </h1>
         <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
           <input
+            tabIndex={0}
             type="text"
             className="border-violet-300 rounded-lg h-[55px] w-full border px-3 text-gray-300 font-semibold outline-none bg-violet-950/30"
             placeholder="URL"
-            defaultValue={baseUrl}
+            value={baseUrl}
             onChange={(e) => setBaseUrl(e.target.value)}
           />
           <input
+            tabIndex={0}
             type="text"
             className="border-violet-300 rounded-lg h-[55px] w-full border px-3 text-gray-300 font-semibold outline-none bg-violet-950/30"
             placeholder="Username"
-            defaultValue={username}
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
+            tabIndex={0}
             type="password"
             className="border-violet-300 rounded-lg h-[55px] w-full border px-3 text-gray-300 font-semibold outline-none bg-violet-950/30"
             placeholder="Password"
-            defaultValue={password}
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
-            className="w-full bg-violet-500 h-[50px] rounded mt-3 cursor-pointer hover:bg-gray-900 transition-all duration-300 ease-in-out"
+            tabIndex={0}
+            className="w-full h-[50px] rounded mt-3 cursor-pointer 
+             bg-violet-500 
+             hover:bg-gray-900 
+             focus:bg-violet-700 
+             transition-all duration-300 ease-in-out"
             type="submit"
           >
             <span className="text-white rounded text-sm font-semibold">

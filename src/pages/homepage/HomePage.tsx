@@ -55,8 +55,9 @@ function HomePage() {
           </div>
           <div className="flex items-center">
             <button
+              tabIndex={0}
               onClick={handleLogout}
-              className="text-3xl text-white hover:text-gray-400 transition-colors duration-300 ease-in-out cursor-pointer"
+              className="text-3xl text-white hover:text-gray-400 transition-colors duration-300 ease-in-out cursor-pointer focus:text-blue-400"
             >
               <FaSignOutAlt />
             </button>
@@ -68,8 +69,9 @@ function HomePage() {
           <div className="flex gap-3 flex-1">
             <div className="flex-1">
               <button
+                tabIndex={0}
                 onClick={() => handleNavigation("Lives")}
-                className="relative w-full h-full rounded-3xl overflow-hidden border-2 border-gray-500 cursor-pointer"
+                className="relative w-full h-full rounded-3xl overflow-hidden border-2 border-gray-500 cursor-pointer focus:border-blue-400"
               >
                 <img
                   src={liveLogo}
@@ -90,8 +92,9 @@ function HomePage() {
               <div className="flex gap-3 flex-[5]">
                 {/* Movies */}
                 <button
+                  tabIndex={0}
                   onClick={() => handleNavigation("Movies")}
-                  className="flex-1 relative rounded-3xl overflow-hidden border-2 border-gray-500 cursor-pointer"
+                  className="flex-1 relative rounded-3xl overflow-hidden border-2 border-gray-500 cursor-pointer focus:border-blue-400"
                 >
                   <img
                     src={moviesLogo}
@@ -108,8 +111,9 @@ function HomePage() {
 
                 {/* Series */}
                 <button
+                  tabIndex={0}
                   onClick={() => handleNavigation("Series")}
-                  className="flex-1 relative rounded-3xl overflow-hidden border-2 border-gray-500 cursor-pointer"
+                  className="flex-1 relative rounded-3xl overflow-hidden border-2 border-gray-500 cursor-pointer focus:border-blue-400"
                 >
                   <img
                     src={seriesLogo}
@@ -127,15 +131,24 @@ function HomePage() {
 
               {/* Bottom Buttons */}
               <div className="flex gap-3 h-[70px]">
-                <button className="flex-1 rounded-2xl overflow-hidden bg-gradient-to-r from-teal-700 to-blue-900 flex items-center justify-center gap-2 text-white border-2 border-gray-500">
+                <button
+                  tabIndex={0}
+                  className="flex-1 rounded-2xl overflow-hidden bg-gradient-to-r from-teal-700 to-blue-900 flex items-center justify-center gap-2 text-white border-2 border-gray-500 focus:border-blue-400"
+                >
                   <FaBook size={14} />
                   <span>User Info</span>
                 </button>
-                <button className="flex-1 rounded-2xl overflow-hidden bg-gradient-to-r from-teal-700 to-blue-900 flex items-center justify-center gap-2 text-white border-2 border-gray-500">
+                <button
+                  tabIndex={0}
+                  className="flex-1 rounded-2xl overflow-hidden bg-gradient-to-r from-teal-700 to-blue-900 flex items-center justify-center gap-2 text-white border-2 border-gray-500 focus:border-blue-400"
+                >
                   <FaUserAlt size={14} />
                   <span>Account</span>
                 </button>
-                <button className="flex-1 rounded-2xl overflow-hidden bg-gradient-to-r from-teal-700 to-blue-900 flex items-center justify-center gap-2 text-white border-2 border-gray-500">
+                <button
+                  tabIndex={0}
+                  className="flex-1 rounded-2xl overflow-hidden bg-gradient-to-r from-teal-700 to-blue-900 flex items-center justify-center gap-2 text-white border-2 border-gray-500 focus:border-blue-400"
+                >
                   <FaSync size={14} />
                   <span>Catch Up</span>
                 </button>

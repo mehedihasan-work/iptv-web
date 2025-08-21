@@ -7,14 +7,15 @@ import SingleSeriesPage from "./pages/series/SingleSeriesPage";
 import HomePage from "./pages/homepage/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import SingleMoviePage from "./pages/movies/SingleMoviePage";
+import NavigationHandler from "./components/shared/NavigationHandler";
 
 function App() {
   return (
     <Router>
+      <NavigationHandler />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/lives" element={<AllLivePage />} />
         <Route path="/lives" element={<AllLivePage />} />
         <Route path="/lives/:id" element={<SingleLivePage />} />
         <Route path="/movies" element={<AllMoviePage />} />

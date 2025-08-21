@@ -70,8 +70,9 @@ function AllSeriesPage() {
       <div className="flex justify-between items-center mb-5">
         <div className="flex items-center gap-3">
           <button
+            tabIndex={0}
             onClick={() => navigate("/")}
-            className="bg-violet-950 text-white w-[35px] h-[35px] rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-950 transition-colors duration-300"
+            className="bg-violet-950 text-white w-[35px] h-[35px] rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-950 transition-colors duration-300 focus:border-blue-400"
           >
             <FaArrowLeft />
           </button>
@@ -80,13 +81,14 @@ function AllSeriesPage() {
         <div className="flex border-2 border-violet-600 bg-violet-950/30 items-center px-3 rounded-2xl w-[300px]">
           <FaSearch className="text-lg text-gray-500" />
           <input
+            tabIndex={0}
             type="text"
             value={seriesSearchText}
             onChange={(e) => {
               setSeriesSearchText(e.target.value);
               setCurrentPage(1); // reset page on search
             }}
-            className="h-[40px] w-full px-3 text-gray-300 font-semibold outline-none"
+            className="h-[40px] w-full px-3 text-gray-300 font-semibold outline-none focus:border-blue-400"
             placeholder="Search movies"
           />
         </div>
@@ -99,9 +101,10 @@ function AllSeriesPage() {
             <FaSearch className="text-lg text-gray-500" />
             <input
               type="text"
+              tabIndex={0}
               value={categorySearchText}
               onChange={(e) => setCategorySearchText(e.target.value)}
-              className="h-[40px] w-full px-3 text-gray-300 font-semibold outline-none bg-violet-950/30"
+              className="h-[40px] w-full px-3 text-gray-300 font-semibold outline-none bg-violet-950/30 focus:border-blue-400"
               placeholder="Search categories"
             />
           </div>
