@@ -8,20 +8,70 @@ import HomePage from "./pages/homepage/HomePage";
 import LoginPage from "./pages/login/LoginPage";
 import SingleMoviePage from "./pages/movies/SingleMoviePage";
 import NavigationHandler from "./components/shared/NavigationHandler";
+import ProtectedRoute from "./components/shared/ProtectedRoute";
 
 function App() {
   return (
     <Router>
       <NavigationHandler />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/lives" element={<AllLivePage />} />
-        <Route path="/lives/:id" element={<SingleLivePage />} />
-        <Route path="/movies" element={<AllMoviePage />} />
-        <Route path="/movies/:id" element={<SingleMoviePage />} />
-        <Route path="/series" element={<AllSeriesPage />} />
-        <Route path="/series/:id" element={<SingleSeriesPage />} />
+        <Route
+          path="/lives"
+          element={
+            <ProtectedRoute>
+              <AllLivePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/lives/:id"
+          element={
+            <ProtectedRoute>
+              <SingleLivePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/movies"
+          element={
+            <ProtectedRoute>
+              <AllMoviePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/movies/:id"
+          element={
+            <ProtectedRoute>
+              <SingleMoviePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/series"
+          element={
+            <ProtectedRoute>
+              <AllSeriesPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/series/:id"
+          element={
+            <ProtectedRoute>
+              <SingleSeriesPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

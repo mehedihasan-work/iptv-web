@@ -162,7 +162,7 @@ function AllLivePage() {
         block: "nearest",
       });
     }
-  }, [focusedList, focusedCategoryIndex, focusedMovieIndex, paginatedLives]);
+  }, [focusedList, focusedCategoryIndex, focusedMovieIndex]);
 
   return (
     <div className="h-screen bg-gradient-to-br from-[#6c3cb9] to-[#172554] px-4 py-5 overflow-hidden">

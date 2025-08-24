@@ -162,7 +162,7 @@ function AllLivePage() {
         block: "nearest",
       });
     }
-  }, [focusedList, focusedCategoryIndex, focusedMovieIndex, paginatedLives]);
+  }, [focusedList, focusedCategoryIndex, focusedMovieIndex]);
 
   return (
     <div className="h-screen bg-gradient-to-br from-[#6c3cb9] to-[#172554] px-4 py-5 overflow-hidden">
@@ -249,37 +249,38 @@ function AllLivePage() {
                 <Loader2Icon className="animate-spin text-white" />
               </div>
             ) : (
-              paginatedLives.map((movie: any, index: number) => {
-                const movieIcon = movie?.cover?.includes(
+              paginatedLives.map((series: any, index: number) => {
+                const seriesIcon = series?.cover?.includes(
                   "http://starshare.live:8080"
                 )
-                  ? movie?.cover.replace(
+                  ? series?.cover.replace(
                       "http://starshare.live:8080",
                       "https://starshare.st"
                     )
-                  : movie?.cover;
+                  : series?.cover;
 
                 return (
                   <Link
-                    key={movie.stream_id}
+                    key={series.series_id}
                     ref={(el: HTMLAnchorElement | null) => {
                       movieRefs.current[index] = el!;
                     }}
-                    to={`/movies/${movie.stream_id}`}
+                    to={"/"}
+                    // to={`/series/${series.series_id}`}
                     className="w-[200px] h-[300px] bg-violet-200 rounded-lg overflow-hidden hover:shadow-2xl hover:shadow-violet-400 focus:ring-2 focus:ring-blue-400 transition-shadow duration-300"
                   >
                     <div>
                       <div className="h-[255px]">
                         <img
-                          src={movieIcon === "" ? noIconPoster : movieIcon}
-                          alt={movie.name}
+                          src={seriesIcon === "" ? noIconPoster : seriesIcon}
+                          alt={series?.name}
                           width={300}
                           height={450}
                           className="h-full w-full bg-cover"
                         />
                       </div>
                       <p className="p-2 text-xs text-gray-700 font-medium">
-                        {movie.name}
+                        {series.name}
                       </p>
                     </div>
                   </Link>
